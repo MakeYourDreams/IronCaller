@@ -1,6 +1,6 @@
-<h2>Login</h2>
 
-<form class="auth-form" action="/auth/login" method="POST" id="form-container">
+
+{{!-- <form class="auth-form" action="/auth/login" method="POST" id="form-container">
   <label for="username">Username</label>
   <input id="username" type="text" name="username" placeholder="JonSnow">
 
@@ -21,4 +21,24 @@
     Don't have an account yet?
     <a href="/auth/signup">Signup</a>
   </p>
-</form>
+</form> --}}
+
+<div class="login-form">
+    <form action="/auth/login" method="post" id="form-container">
+        <h2 class="text-center">Log in</h2>       
+        <div class="form-group">
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password"  name="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+            <a href="#" class="pull-right">Forgot Password?</a>
+        </div>        
+    </form>
+    <p class="text-center"><a href="#">Create an Account</a></p>
+</div>
