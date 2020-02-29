@@ -11,7 +11,7 @@
       <th scope="col">Subjet</th>
       <th scope="col">Message</th>
       <th scope="col">Date and time</th>
-      <th scope="col">Options</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -22,7 +22,7 @@
       <td>{{this.subjet}}</td>
       <td>{{this.message}}</td>
       <td>{{this.date}}{{this.time}}</td>
-      <td><a class="btn btn-primary" href="">Edit</a> <a class="btn btn-danger" style="margin-left: 10px;" href="">Delete</a></td>
+      <td><a class="btn btn-primary" href="./tasks/edit-task/{{this.id}}">Edit</a> <a class="btn btn-danger" style="margin-left: 10px;" href="/tasks/delete/{{this.id}}">Delete</a></td>
     </tr>
     {{/each}}
   </tbody>

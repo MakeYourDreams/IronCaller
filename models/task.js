@@ -6,11 +6,17 @@ const { Schema, model } = mongoose
   subjet:String,
   message:String,
   date:Date,
-  time:Number,
+  time:String,
   phone:Number,
+  status:Boolean,
 
   
-})
+},
+{
+timestamps: true
+}
+
+)
 
 
 module.exports = model('Task', taskSchema);
