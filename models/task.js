@@ -3,9 +3,9 @@ const { Schema, model } = mongoose
 
  taskSchema = new Schema ({
 
-  title:String,
+  subjet:String,
   message:String,
-  time: Number,
+  date:Date,
   phone: Number,
   
 })

@@ -15,7 +15,7 @@ const MongoStore = require("connect-mongo")(session);
 
 
 mongoose
-  .connect('mongodb://localhost/file-upload-example', {useNewUrlParser: true})
+  .connect('mongodb://localhost/ironCaller', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -64,9 +64,9 @@ app.locals.slogan = "The best app to remind you"
 
 
 // ROUTES 
-const index = require('./routes/index');
-app.use('/', index);
+app.use('/', require('./routes/index'));
 app.use("/auth", require("./routes/auth"));
-app.use('/tasks', require('./routes/tasks'))
+app.use("/tasks", require("./routes/task-routes/task"));
+
 
 module.exports = app;
