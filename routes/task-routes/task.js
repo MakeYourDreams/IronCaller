@@ -64,10 +64,10 @@ router.get('/edit-task/:taskId', (req, res, next) => {
 
 router.post('/edit-task/:taskId', (req, res, next) => {
   console.log(req.body);
-    let {phone, date, message, subject} = req.body;
+    let {phone, date, message, subjet} = req.body;
     taskModel.findByIdAndUpdate(
     req.params.taskId,
-    { phone, date, message, subject },
+    { phone, date, message, subjet },
     { new: true }
     )
     .then(res.redirect('back'))
