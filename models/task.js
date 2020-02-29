@@ -5,7 +5,7 @@ const { Schema, model } = mongoose
 
   subjet:String,
   message:String,
-  date:Date,
+  date:String,
   time:String,
   phone:Number,
   status:Boolean,

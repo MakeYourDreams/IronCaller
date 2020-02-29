@@ -63,12 +63,14 @@ router.get('/edit-task/:taskId', (req, res, next) => {
 
 
 router.post('/edit-task/:taskId', (req, res, next) => {
-  console.log(req.body);
-    let {phone, date, message, subjet} = req.body;
+
+    let {phone, date, message, subjet, time} = req.body;
     taskModel.findByIdAndUpdate(
     req.params.taskId,
-    { phone, date, message, subjet },
-    { new: true }
+    { phone, date, message, subjet, time },
+    { new: true },
+   
+    
     )
     .then(res.redirect('back'))
     .catch(err => next(err));
@@ -79,6 +81,10 @@ router.post('/edit-task/:taskId', (req, res, next) => {
     // message: '' }
 
 })
+
+//delete reminder 
+
+
 
 
 
