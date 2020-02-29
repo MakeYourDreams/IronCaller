@@ -1,27 +1,27 @@
 <a href="/tasks" class="btn btn-secondary btn-lg btn-block" style="color:white; margin: 25px 0 25px 0;">Go back to dashboard</a>
 
 <h2>Update reminder</h2>
-<h5>Reminder ID:{{this.id}}</h5>
+<h5>Reminder ID:{{_id}}</h5>
 
 
-<form style="margin-top: 30px;" action="/" method="POST"> 
+<form style="margin-top: 30px;" action="/tasks/edit-task/{{_id}}" method="POST"> 
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputEmail4">Subjet</label>
-      <input type="text" class="form-control" id="subjet" name="subjet" placeholder="Subjet" value="{{this.subjet}}">
+      <input type="text" class="form-control" id="subjet" name="subjet" placeholder="Subjet" value="{{subjet}}">
     </div>
      <div class="form-group col-md-4">
       <label for="inputEmail4">Phone number</label>
-      <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number" value="{{this.phone}}">
+      <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number" value="{{phone}}">
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-2">
       <label for="inputPassword4">Date</label>
-      <input type="datetime-local" class="form-control" id="date" name="date" placeholder="Date" value="{{this.date}}">
+      <input type="date" class="form-control" id="date" name="date" placeholder="Date" value="{{date}}">
     </div>
-    {{!-- <div class="form-group col-md-2">
+    <div class="form-group col-md-2">
       <label for="inputPassword4">Time</label>
-      <input type="time" class="form-control" id="time" name="time" placeholder="Time">
-    </div> --}}
+      <input type="time" class="form-control" id="time" name="time" placeholder="Time" value="{{time}}">
+    </div>
   </div>
   
 
@@ -31,7 +31,7 @@
 
     <div class="form-group col-md-12">
       <label for="exampleFormControlTextarea1">Reminder</label>
-    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+    <textarea class="form-control" id="message" name="message" rows="3" >{{message}}</textarea>
     </div>
   </div>
 

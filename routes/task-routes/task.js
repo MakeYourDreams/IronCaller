@@ -1,16 +1,17 @@
 const express = require('express');
 const router  = express.Router();
 const taskModel = require('../../models/task')
-const user = require("../../models/User");
+const User = require("../../models/User");
 
 //all task dashboard
 router.get('/', (req, res, next) => {
 
-  //see if user is login
-  if (!req.session.user) {
-    res.redirect("/auth/login");
-  }
+if (!req.session.user){
+  res.redirect("auth/login");
+  return
+}
 
+  //see if user is login
   taskModel.find()
         .then(allTaskFromDB => {
           res.render('task/alltask', { tasks: allTaskFromDB });
@@ -24,11 +25,11 @@ router.get('/new-task', (req, res, next) => {
   res.render('task/ctask');
 });
 
-//view to edit task
-router.get('/edit-task/:taskId', (req, res, next) => {
+// //view to edit tasks
+// router.get('/edit-task/:taskId', (req, res, next) => {
   
-  res.render('task/edit-task');
-});
+//   res.render('task/edit-task');
+// });
 
 
 //create new reminder
@@ -51,13 +52,34 @@ router.post('/create', (req, res, next) => {
 //update reminder
 
 
-router.get('/update/:taskId', (req, res, next) => {
-  tasks.findByIdAndUpdate(req.params.taskId)
-
+router.get('/edit-task/:taskId', (req, res, next) => {
+  taskModel.findOne({ _id : req.params.taskId })
       .then(updatedTasks => {
-          next();
+        console.log(updatedTasks);
+        res.render("task/edit-task",  updatedTasks );
       })
       .catch(err => next(err));
 });
+
+
+router.post('/edit-task/:taskId', (req, res, next) => {
+  console.log(req.body);
+    let {phone, date, message, subject} = req.body;
+    taskModel.findByIdAndUpdate(
+    req.params.taskId,
+    { phone, date, message, subject },
+    { new: true }
+    )
+    .then(res.redirect('back'))
+    .catch(err => next(err));
+
+    // subjet: 'Test agaun',
+    // phone: '423434343',
+    // date: '', 
+    // message: '' }
+
+})
+
+
 
 module.exports = router;
