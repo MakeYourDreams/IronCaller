@@ -6,7 +6,9 @@ const { Schema, model } = mongoose
   subjet:String,
   message:String,
   date:Date,
-  phone: Number,
+  time:Number,
+  phone:Number,
+
   
 })
 

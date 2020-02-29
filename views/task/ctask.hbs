@@ -2,21 +2,26 @@
 
 
 
-<form style="margin-top: 30px;" action="/add">
+<form style="margin-top: 30px;" action="./create" method="POST"> 
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label for="inputEmail4">Subjet</label>
-      <input type="text" class="form-control" id="subjet" placeholder="Subjet">
+      <input type="text" class="form-control" id="subjet" name="subjet" placeholder="Subjet">
     </div>
-    <div class="form-group col-md-3">
+     <div class="form-group col-md-4">
+      <label for="inputEmail4">Phone number</label>
+      <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number">
+    </div>
+    <div class="form-group col-md-2">
       <label for="inputPassword4">Date</label>
-      <input type="date" class="form-control" id="date" placeholder="Date">
+      <input type="date" class="form-control" id="date" name="date" placeholder="Date">
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-2">
       <label for="inputPassword4">Time</label>
-      <input type="time" class="form-control" id="time" placeholder="Time">
+      <input type="time" class="form-control" id="time" name="time" placeholder="Time">
     </div>
   </div>
+  
 
 
   <div class="form-row">
@@ -24,10 +29,14 @@
 
     <div class="form-group col-md-12">
       <label for="exampleFormControlTextarea1">Reminder</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
     </div>
   </div>
 
   <button type="submit" class="btn btn-primary">Create Reminder</button>
 
 </form>
+
+<script>
+  document.getElementById('subjet').focus();
+</script>
