@@ -4,45 +4,26 @@
 
 {{!-- Tabla de tareas --}}
 <table class="table">
+  <h2 style="padding: 10px 0 10px 0;">Active reminders</h2>
   <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Subjet</th>
       <th scope="col">Message</th>
       <th scope="col">Date and time</th>
-      <th scope="col">optoons</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
+    {{#each tasks}}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@twitter</td>
+  
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.subjet}}</td>
+      <td>{{this.message}}</td>
+      <td>{{this.date}}{{this.time}}</td>
+      <td><a class="btn btn-primary" href="./tasks/edit-task/{{this.id}}">Edit</a> <a class="btn btn-danger" style="margin-left: 10px;" href="/tasks/delete/{{this.id}}">Delete</a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@twitter</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-    </tr>
-
-
+    {{/each}}
   </tbody>
 </table>
