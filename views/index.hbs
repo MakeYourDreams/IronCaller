@@ -1,7 +1,7 @@
 
 
 {{!-- Index con session --}}
-
+{{#if currentUser}}
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -13,13 +13,13 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"></li>
-          <li class="list-group-item">{{currentUser.username}}</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item"><ion-icon name="mail-outline"> </ion-icon>  {{currentUser.username}}</li>
+          <li class="list-group-item"><ion-icon name="call-outline"> </ion-icon>  {{currentUser.phone}}</li>
           <li class="list-group-item">Vestibulum at eros</li>
         </ul>
         <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+          <a href="#" class="card-link">Edit Profile</a>
+         
         </div>
       </div>
     </div>
@@ -29,11 +29,27 @@
           Recent reminders
         </a>
         {{#each tasks}}
-        <a href="" class="list-group-item list-group-item-action">{{this.message}}</a>
+        <a href="/tasks/edit-task/{{this._id}}" class="list-group-item list-group-item-action"><strong>{{this.subjet}}</strong> <br> {{this.message}}</a>
         {{/each}}
       </div>
     </div>
   </div>
 </div>
 
+
+
 {{!-- END Index con session --}}
+{{else}}
+
+<div class="jumbotron">
+  <h1 class="display-4">Hello, IronCaller is waiting for you!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
+
+
+{{/if}}

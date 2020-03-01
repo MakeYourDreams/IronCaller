@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 router.get("/login", (req, res, next) => {
-    res.render("auth/login", { message: "error" });
+    res.render("auth/login");
 });
 // this is the post route when using passport to login the user.
 // Since we are using sessions to log in the user, we will not be using the passport method for user login.
@@ -48,6 +48,7 @@ router.post("/login", (req, res, next) => {
 router.get("/signup", (req, res, next) => {
     res.render("auth/signup");
 });
+
 
 // user signup
 router.post("/signup", (req, res, next) => {
