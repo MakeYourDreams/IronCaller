@@ -25,8 +25,8 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Subjet</th>
-      <th scope="col">Message</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Phone</th>
       <th scope="col">Date and time</th>
       <th scope="col">Actions</th>
     </tr>
@@ -38,7 +38,7 @@
   
       <th scope="row">{{this.id}}</th>
       <td>{{this.subjet}}</td>
-      <td style="max-width: 20vw;">{{this.message}}</td>
+      <td style="max-width: 20vw;">{{this.phone}}</td>
       <td>{{this.date}} - {{this.time}}</td>
       <td><a class="btn btn-primary" href="./tasks/edit-task/{{this.id}}">Edit</a> <a class="btn btn-danger" style="margin-left: 10px;" href="/tasks/delete/{{this.id}}">Delete</a></td>
     </tr>

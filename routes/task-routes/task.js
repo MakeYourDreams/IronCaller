@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const taskModel = require('../../models/task')
-const User = require("../../models/User");
+
 
 //all task dashboard
 router.get('/', (req, res, next) => {
@@ -65,11 +65,13 @@ router.post('/edit-task/:taskId', (req, res, next) => {
     taskModel.findByIdAndUpdate(
     req.params.taskId,
     { phone, date, message, subjet, time },
-    { new: true },
+    { new: true }
    
     
     )
-    res.redirect('/tasks')
+    .then(res.redirect('/tasks'))
+    
+    
     .catch(err => next(err));
 
 })

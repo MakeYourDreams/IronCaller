@@ -87,6 +87,7 @@ app.locals.slogan = "The best app to remind you"
 app.use('/', require('./routes/index'));
 app.use("/auth", require("./routes/auth"));
 app.use("/tasks", require("./routes/task-routes/task"));
+app.use("/user", require("./routes/user-routes/user"));
 
 
 module.exports = app;
