@@ -36,7 +36,7 @@ router.post("/login", (req, res, next) => {
             // Compare users encrypted password with an encryption from DB and redirect to home page if they match otherwise redirect to login
             if (bcrypt.compareSync(req.body.password, userFromDB.password)) {
                 req.session.user = userFromDB;
-                res.redirect("/");
+                res.redirect("/tasks");
             } else {
                 res.render("auth/login", { message: "Incorrect Password" });
                 return;

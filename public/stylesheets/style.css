@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
@@ -9,9 +8,7 @@ a {
   width: 30%;
   margin: 0 auto; }
 
+.login-form {
+  margin-top: 10%; }
 
-  .login-form {
-
-    margin-top: 10%;
-  }
 /*# sourceMappingURL=style.css.map */
