@@ -1,0 +1,39 @@
+
+
+{{!-- Index con session --}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <img src="../../images/default-user-image.png" class="card-img-top" style="height: 15rem;" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{currentUser.firstName}} {{currentUser.lastName}}</h5>
+          
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"></li>
+          <li class="list-group-item">{{currentUser.username}}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+          Recent reminders
+        </a>
+        {{#each tasks}}
+        <a href="" class="list-group-item list-group-item-action">{{this.message}}</a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- END Index con session --}}

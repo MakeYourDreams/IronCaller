@@ -78,7 +78,10 @@ router.post("/signup", (req, res, next) => {
 
         const newUser = new User({
             username,
-            password: hashPass
+            password: hashPass,
+            firstName: req.body.firstName,
+            lastName:req.body.lastName,
+            phone: req.body.phone
         });
 
         // save new user to the database and then set his session

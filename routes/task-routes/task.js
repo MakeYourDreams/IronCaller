@@ -6,30 +6,27 @@ const User = require("../../models/User");
 //all task dashboard
 router.get('/', (req, res, next) => {
 
+//see if user is login
 if (!req.session.user){
   res.redirect("auth/login");
   return
 }
 
-  //see if user is login
   taskModel.find()
         .then(allTaskFromDB => {
           res.render('task/alltask', { tasks: allTaskFromDB });
         })
         .catch(err => next(err))
- 
+
 });
+
+
 
 //view to add new task
 router.get('/new-task', (req, res, next) => {
   res.render('task/ctask');
 });
 
-// //view to edit tasks
-// router.get('/edit-task/:taskId', (req, res, next) => {
-  
-//   res.render('task/edit-task');
-// });
 
 
 //create new reminder

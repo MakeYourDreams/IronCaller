@@ -33,6 +33,10 @@ const userSchema = new Schema(
         email: {
             type: String
         },
+          // the phone the user will use on the site ()
+          phone: {
+            type: String
+        },
         // the users password (hashed)
         password: {
             type: String
