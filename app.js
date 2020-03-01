@@ -41,7 +41,8 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
+  
+//sessions
 app.use(
   session({
       secret: "regenerator",
@@ -55,6 +56,17 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.session.user;
   next();
 });
+
+app.get('/logout', function(req, res){
+  if (req.session) {
+    req.session.auth = null;
+    res.clearCookie('auth');
+    req.session.destroy(function() {});
+  }
+  res.redirect('/auth/login');
+});
+
+//end sessions
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

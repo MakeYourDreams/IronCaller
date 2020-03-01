@@ -41,7 +41,7 @@ router.post('/create', (req, res, next) => {
 
     console.log(newReminder)
 
-    res.redirect('back')
+    res.redirect('/tasks')
 
   })
   .catch(err => next
@@ -55,7 +55,7 @@ router.post('/create', (req, res, next) => {
 router.get('/edit-task/:taskId', (req, res, next) => {
   taskModel.findOne({ _id : req.params.taskId })
       .then(updatedTasks => {
-        console.log(updatedTasks);
+        
         res.render("task/edit-task",  updatedTasks );
       })
       .catch(err => next(err));
@@ -72,17 +72,24 @@ router.post('/edit-task/:taskId', (req, res, next) => {
    
     
     )
-    .then(res.redirect('back'))
+    res.redirect('/tasks')
     .catch(err => next(err));
-
-    // subjet: 'Test agaun',
-    // phone: '423434343',
-    // date: '', 
-    // message: '' }
 
 })
 
+
+
 //delete reminder 
+
+router.get('/delete/:taskId', (req, res, next) => {
+  taskModel.remove({ _id : req.params.taskId })
+      .then(res.redirect('/tasks'))
+
+
+
+      .catch(err => next(err));
+});
+
 
 
 

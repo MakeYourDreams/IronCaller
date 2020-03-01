@@ -1,5 +1,22 @@
 
+{{!-- notificaciones --}}
+
+{{#if updated}}
+
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4 class="alert-heading">We just Updated!</h4>
+  <p class="mb-0">Reminder successful updated!</a></p>
+</div>
+
+{{/if}}
+
+
+
+
 <a href="tasks/new-task" class="btn btn-success" style="color:white; margin: 25px 0 25px 0">Add new reminder</a>
+
+
 
 
 {{!-- Tabla de tareas --}}
@@ -15,6 +32,7 @@
     </tr>
   </thead>
   <tbody>
+    
     {{#each tasks}}
     <tr>
   
