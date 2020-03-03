@@ -14,4 +14,13 @@ router.get('/edit', (req, res, next) => {
   
 });
 
+router.get('/delete/:userId', (req, res, next) => {
+  user.remove({ _id : req.params.userId })
+      .then(res.redirect('/tasks'))
+
+
+
+      .catch(err => next(err));
+});
+
 module.exports = router;

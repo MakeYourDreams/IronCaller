@@ -12,7 +12,7 @@ if (!req.session.user){
   return
 }
 
-  taskModel.find()
+  taskModel.find({ username: req.body.username })
         .then(allTaskFromDB => {
           res.render('task/alltask', { tasks: allTaskFromDB });
         })

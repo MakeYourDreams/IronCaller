@@ -7,21 +7,37 @@
     <div class="col-md-3">
       <div class="card">
         <img src="../../images/default-user-image.png" class="card-img-top" style="height: 15rem;" alt="...">
-        <div class="card-body">
+        <div class="card-body" id="indexUser">
           <h5 class="card-title">{{currentUser.firstName}} {{currentUser.lastName}}</h5>
           
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"></li>
-          <li class="list-group-item"><ion-icon name="mail-outline"> </ion-icon>  {{currentUser.username}}</li>
+          
+          <li class="list-group-item" style="border-top-width: 1px !important;"><ion-icon name="mail-outline"> </ion-icon>  {{currentUser.username}}</li>
           <li class="list-group-item"><ion-icon name="call-outline"> </ion-icon>  {{currentUser.phone}}</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+ 
         </ul>
         <div class="card-body">
           <a href="#" class="card-link">Edit Profile</a>
          
         </div>
       </div>
+
+      {{!-- reminders done --}}
+
+      <ul class="list-group" style="margin-top: 2vh;">
+        {{#each tasks}}
+
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{this.subjet}}
+            <span class="badge badge-primary badge-pill">Done</span>
+          </li>
+
+         {{/each}}
+      
+      </ul>
+
+      {{!-- END reminders done --}}
     </div>
     <div class="col-md-9">
       <div class="list-group">

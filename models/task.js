@@ -9,6 +9,7 @@ const { Schema, model } = mongoose
   time:String,
   phone:Number,
   status:Boolean,
+  owner:String,
 
   
 },
