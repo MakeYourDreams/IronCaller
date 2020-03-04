@@ -15,8 +15,10 @@ a {
   padding: 0.5rem 2.5rem !important; }
 
 .container {
-  margin-top: 2vw !important;
-  width: 120%; }
+  margin-top: 2vw !important; }
+
+.comments-box {
+  margin-top: 5vh; }
 
 #indexUser {
   padding-bottom: 0 !important; }
