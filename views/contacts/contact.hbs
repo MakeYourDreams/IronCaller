@@ -1,20 +1,18 @@
 
 
-{{!-- Index con session --}}
-{{#if currentUser}}
 <div class="container-xl">
   <div class="row">
     <div class="col-md-3">
       <div class="card">
         <img src="../../images/default-user-image.png" class="card-img-top" style="height: 15rem;" alt="...">
         <div class="card-body" id="indexUser">
-          <h5 class="card-title">{{currentUser.firstName}} {{currentUser.lastName}}</h5>
+          <h5 class="card-title">{{oneUser.firstName}} {{oneUser.lastName}}</h5>
           
         </div>
         <ul class="list-group list-group-flush">
           
-          <li class="list-group-item" style="border-top-width: 1px !important;"><ion-icon name="mail-outline"> </ion-icon>  {{currentUser.username}}</li>
-          <li class="list-group-item"><ion-icon name="call-outline"> </ion-icon>  {{currentUser.phone}}</li>
+          <li class="list-group-item" style="border-top-width: 1px !important;"><ion-icon name="mail-outline"> </ion-icon>  {{oneUser.username}}</li>
+          <li class="list-group-item"><ion-icon name="call-outline"> </ion-icon>  {{oneUser.phone}}</li>
  
         </ul>
         <div class="card-body">
@@ -108,22 +106,3 @@
 </div>
 
        
-
-
-
-
-{{!-- END Index con session --}}
-{{else}}
-
-<div class="jumbotron">
-  <h1 class="display-4">Welcome, IronCaller is waiting for you!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="/auth/signup" role="button">Sign up!</a>
-  </p>
-</div>
-
-
-{{/if}}

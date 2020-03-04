@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const user = require('../../models/User')
+const taskModel = require('../../models/task')
 
 /* GET home page */
 router.get('/edit', (req, res, next) => {
@@ -20,6 +21,30 @@ router.get('/delete/:userId', (req, res, next) => {
 
 
 
+      .catch(err => next(err));
+});
+
+// all users routes
+
+router.get('/', (req, res, next) => {
+
+  user.find()
+  .then(allUserFromDB => {
+    res.render('./contacts/allContacts',{ allUsers: allUserFromDB });
+  })
+
+      .catch(err => next(err));
+});
+
+
+router.get('/profile/:id', (req, res, next) => {
+
+  const userID = { _id:req.params.id}
+
+  user.findOne(userID) 
+  .then(UserFromDB => {
+    res.render('./contacts/contact',{ oneUser: UserFromDB });
+  })
       .catch(err => next(err));
 });
 
