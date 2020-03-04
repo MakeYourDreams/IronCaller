@@ -67,16 +67,15 @@
                                 <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
                             <div class="col-xs-9 col-md-10">
                                 <div>
-                                    <a href="http://bootsnipp.com/BhaumikPatel/snippets/4ldn">Cool Sign Up</a>
+                                    <a href="http://bootsnipp.com/BhaumikPatel/snippets/4ldn">Sugested reminder</a>
                                     <div class="mic-info">
-                                        By: <a href="#">Bhaumik Patel</a> on 11 Nov 2013
+                                        By: <a href="#">{{allComments.owner}}</a> on {{allComments.date}}
                                     </div>
                                 </div>
                                 <div class="comment-text">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
+                                    {{allComments.message}}
                                 </div>
-                                <div class="action">
+                                {{!-- <div class="action">
                                     <button type="button" class="btn btn-primary btn-xs" title="Edit">
                                         <span class="glyphicon glyphicon-pencil"></span>
                                     </button>
@@ -86,7 +85,7 @@
                                     <button type="button" class="btn btn-danger btn-xs" title="Delete">
                                         <span class="glyphicon glyphicon-trash"></span>
                                     </button>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </li>
@@ -104,7 +103,7 @@
                 <div class="col-md-12 col-md-offset-3">
                     <div class="panel panel-info">
                         <div class="panel-body">
-                            <form action="./post-comment" class="form-inline" method="POST">
+                            <form action="../../comments/post-comment" class="form-inline" method="POST">
                                 <textarea id="message" name="message" placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
                                 <input type="hidden" id="autor" name="autor" value="{{currentUser.firstName}} {{currentUser.lastName}}">
                                 <input type="hidden" id="owner" name="owner" value="{{currentUser.username}}">

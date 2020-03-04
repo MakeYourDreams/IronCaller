@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const user = require('../../models/User')
-const taskModel = require('../../models/task')
+const comments = require('../../models/comments')
 
 /* GET home page */
 router.get('/edit', (req, res, next) => {
@@ -41,17 +41,15 @@ router.get('/profile/:id', (req, res, next) => {
 
   const userID = { _id:req.params.id}
 
-  user.findOne(userID) 
-  .then(UserFromDB => {
-    res.render('./contacts/contact',{ oneUser: UserFromDB });
+  user.findOne(userID)
 
-    
+    .then(UserFromDB => {
+      res.render('./contacts/contact',{ oneUser: UserFromDB })
+  
+   
   }) //final busqueda de usuario
 
-  user.find()
-  .then(allCommentsDB => {
-    res.render('./contacts/allContacts',{ allComents: allCommentsDB });
-  })
+
       .catch(err => next(err));
 });
 

@@ -14,6 +14,13 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
 
+//Twilio call
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
+const VoiceResponse = require('twilio').twiml.VoiceResponse;
+const schedule = require('node-schedule-tz');
+
 mongoose
   .connect('mongodb://localhost/ironCaller', {useNewUrlParser: true})
   .then(x => {
@@ -88,6 +95,9 @@ app.use('/', require('./routes/index'));
 app.use("/auth", require("./routes/auth"));
 app.use("/tasks", require("./routes/task-routes/task"));
 app.use("/users", require("./routes/user-routes/user"));
+app.use("/comments", require("./routes/comments-routes/comments"));
+
+
 
 
 module.exports = app;
