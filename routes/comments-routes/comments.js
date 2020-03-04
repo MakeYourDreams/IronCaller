@@ -3,36 +3,23 @@ const router  = express.Router();
 const commentsModel = require('../../models/comments')
 
 
-//all task dashboard
-router.get('/', (req, res, next) => {
+//all commetns dashboard
+// router.get('/users/', (req, res, next) => {
 
-//see if user is login
-if (!req.session.user){
-  res.redirect("auth/login");
-  return
-}
+// commentsModel.find({ username: req.body.username })
+//         .then(allTaskFromDB => {
+//           res.render('comments/alltask', { tasks: allTaskFromDB });
+//         })
+//         .catch(err => next(err))
 
-commentsModel.find({ username: req.body.username })
-        .then(allTaskFromDB => {
-          res.render('comments/alltask', { tasks: allTaskFromDB });
-        })
-        .catch(err => next(err))
-
-});
-
-
-
-//view to add new task
-router.get('/new-task', (req, res, next) => {
-  res.render('task/ctask');
-});
+// });
 
 
 
 //create new reminder
-router.post('/create', (req, res, next) => {
-  const reminderInfo = req.body;
-  reminderInfo.status = false;
+router.post('users/post-comment', (req, res, next) => {
+  const commentInfo = req.body;
+  commentInfo.status = false;
   commentsModel.create(reminderInfo)
   .then(newReminder => {
 

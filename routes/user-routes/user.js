@@ -44,8 +44,21 @@ router.get('/profile/:id', (req, res, next) => {
   user.findOne(userID) 
   .then(UserFromDB => {
     res.render('./contacts/contact',{ oneUser: UserFromDB });
+
+    
+  }) //final busqueda de usuario
+
+  user.find()
+  .then(allCommentsDB => {
+    res.render('./contacts/allContacts',{ allComents: allCommentsDB });
   })
       .catch(err => next(err));
 });
+
+
+
+
+
+
 
 module.exports = router;
