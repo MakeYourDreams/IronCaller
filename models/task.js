@@ -11,7 +11,6 @@ const { Schema, model } = mongoose
   status:Boolean,
   owner:String,
 
-  
 },
 {
 timestamps: true

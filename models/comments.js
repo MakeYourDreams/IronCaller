@@ -11,7 +11,6 @@ const { Schema, model } = mongoose
   owner:String,
   para:String,
 
-  
 },
 {
 timestamps: true

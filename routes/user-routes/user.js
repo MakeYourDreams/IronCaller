@@ -20,7 +20,6 @@ router.get('/delete/:userId', (req, res, next) => {
       .then(res.redirect('/tasks'))
 
 
-
       .catch(err => next(err));
 });
 
@@ -40,13 +39,10 @@ router.get('/', (req, res, next) => {
 router.get('/profile/:id', (req, res, next) => {
 
   const userID = { _id:req.params.id}
-
   user.findOne(userID)
-
     .then(UserFromDB => {
       res.render('./contacts/contact',{ oneUser: UserFromDB })
   
-   
   }) //final busqueda de usuario
 
 

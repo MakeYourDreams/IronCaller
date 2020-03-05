@@ -22,7 +22,7 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const schedule = require('node-schedule-tz');
 
 mongoose
-  .connect('mongodb://localhost/ironCaller', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
