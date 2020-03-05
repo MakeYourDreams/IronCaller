@@ -2,8 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const taskModel = require('../../models/task')
 
-const accountSid = "ACe3058ab222650186bdc7af1cbacfab48";
-const authToken = "2b0faf968465135eb690b25da6a8d52b";
+const accountSid = "ACe3058ab222650186bdc7af1cbacfab48"
+const authToken = "476ee152ee58a64d5dd0f5cde413b580"
 const client = require('twilio')(accountSid, authToken);
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const schedule = require('node-schedule-tz');
